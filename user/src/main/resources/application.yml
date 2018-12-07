@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: user
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/DEMO_USER?useUnicode=true&characterEncoding=utf8&useSSL=false&statementInterceptors=brave.mysql.TracingStatementInterceptor
+    username: jing
+    password: Jing1234!@#$
+jrpc:
+  server:
+    name: ${spring.application.name}
+    version: 1.0
+    port: 3001
+  trace:
+    more: true
+j-jdbc:
+  tableInit: 3
+
