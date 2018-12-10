@@ -1,0 +1,8 @@
+/jrpc.demo/config/user=demo.user.name=zhangsan
+/jrpc.demo/config/user=demo.user.nickname=${demo.user.name:default}-nickname
+/jrpc.demo/config/user,dev=db.host=127.0.0.1
+/jrpc.demo/config/user,dev=db.port=3306
+/jrpc.demo/config/user,dev=db.schema=DEMO_USER
+/jrpc.demo/config/user,dev=db.username=jing
+/jrpc.demo/config/user,dev=db.password=Jing1234!@#$
+/jrpc.demo/config/user,dev=demo.user.name=zhangsan-dev
