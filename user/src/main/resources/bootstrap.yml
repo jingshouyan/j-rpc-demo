@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: user
+  cloud:
+    zookeeper:
+      enabled: true
+      connect-string: 127.0.0.1:2181
+      config:
+        root: /jrpc.demo/config
+        enabled: true
+        watcher:
+          enabled: true
