@@ -1,6 +1,6 @@
 spring:
-  application:
-    name: user
+  profiles:
+    active: dev
   cloud:
     zookeeper:
       enabled: true

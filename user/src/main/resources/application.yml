@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: user
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/DEMO_USER?useUnicode=true&characterEncoding=utf8&useSSL=false&statementInterceptors=brave.mysql.TracingStatementInterceptor
