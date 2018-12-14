@@ -3,9 +3,9 @@ spring:
     name: user
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://${db.host:db}:${db.port:3306}/${db.schema}?useUnicode=true&characterEncoding=utf8&useSSL=false&statementInterceptors=brave.mysql.TracingStatementInterceptor
+    url: jdbc:mysql://${db.host:127.0.0.1}:${db.port:3306}/${db.schema:DEMO_USER}?useUnicode=true&characterEncoding=utf8&useSSL=false&statementInterceptors=brave.mysql.TracingStatementInterceptor
     username: ${db.username:root}
-    password: ${db.password:root}
+    password: ${db.password:abcd1234}
 
 jrpc:
   server:
