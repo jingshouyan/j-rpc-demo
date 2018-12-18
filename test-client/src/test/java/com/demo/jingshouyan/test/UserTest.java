@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
 
@@ -43,12 +44,14 @@ public class UserTest {
 
     @Test
     public void single(){
-        query(R.TYPE_SINGLE);
+        UserBean userBean = query(R.TYPE_SINGLE).get(UserBean.class);
+        System.out.println(userBean);
     }
 
     @Test
     public void multiple(){
-        query(R.TYPE_MULTIPLE);
+        List<UserBean> userBeans = query(R.TYPE_MULTIPLE).list(UserBean.class);
+        System.out.println(userBeans);
     }
 
     @Test
@@ -98,10 +101,10 @@ public class UserTest {
         System.out.println(rsp);
     }
 
-    private void query(String type){
+    private Rsp query(String type){
         R r = new R();
-        r.setId("U18001q");
-        r.setIds(Lists.newArrayList("U18001","U20001"));
+        r.setId("U10002");
+        r.setIds(Lists.newArrayList("U10003","U10004"));
         r.setType(type);
         r.setPage(new Page());
         r.setConditions(ConditionUtil.newInstance()
@@ -114,6 +117,6 @@ public class UserTest {
                 .setMethod("retrieve")
                 .setParamObj(r)
                 .send();
-        System.out.println(rsp);
+        return rsp;
     }
 }
