@@ -56,7 +56,8 @@ public class UserTest {
 
     @Test
     public void page(){
-        query(R.TYPE_PAGE);
+        Page<UserBean> page = query(R.TYPE_PAGE).get(Page.class,UserBean.class);
+        System.out.println(page);
     }
 
     @Test
