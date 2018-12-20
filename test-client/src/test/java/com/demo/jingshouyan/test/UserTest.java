@@ -43,6 +43,17 @@ public class UserTest {
     }
 
     @Test
+    public void newUser(){
+        Rsp rsp = Request.newInstance()
+                .setClient(client)
+                .setServer("user")
+                .setMethod("newUser")
+                .setParamObj("张三")
+                .send();
+        System.out.println(rsp.getResult());
+    }
+
+    @Test
     public void single(){
         UserBean userBean = query(R.TYPE_SINGLE).get(UserBean.class);
         System.out.println(userBean);
@@ -70,16 +81,41 @@ public class UserTest {
         query(R.TYPE_LIMIT);
     }
 
+    public void update() {
+
+    }
+
     @Test
     public void create2() throws Exception{
-        IntStream.range(0,100).parallel()
-                .forEach(i -> create());
-        Thread.sleep(10000);
-        long start = System.currentTimeMillis();
-        IntStream.range(0,1000).parallel()
-                .forEach(i -> create());
-        long end = System.currentTimeMillis();
-        System.out.println(end - start);
+        List<UserBean> userBeans = Lists.newArrayList();
+        UserBean u1 = new UserBean();
+        u1.setName("u1");
+        u1.setAge(10);
+        u1.setTags(Lists.newArrayList("123","立刻解放的"));
+        u1.setNickname("真的是");
+        userBeans.add(u1);
+        UserBean u2 = new UserBean();
+        u2.setName("u2");
+        u2.setAge(10);
+        u2.setTags(Lists.newArrayList("123","立刻解放的"));
+        u2.setNickname("真的是212");
+        userBeans.add(u2);
+        UserBean u3 = new UserBean();
+        u3.setName("u1");
+        u3.setAge(10);
+        u3.setTags(Lists.newArrayList("123","立刻解放的"));
+        u3.setNickname("真的是sds 上的");
+        userBeans.add(u3);
+        C c = new C();
+        c.setBean("user");
+        c.setType(C.TYPE_MULTIPLE);
+        c.setData(JsonUtil.toJsonString(userBeans));
+        Rsp rsp = Request.newInstance()
+                .setClient(client)
+                .setServer("user")
+                .setMethod("create")
+                .setParamObj(c)
+                .send();
     }
 
     @Test
@@ -104,7 +140,7 @@ public class UserTest {
 
     private Rsp query(String type){
         R r = new R();
-        r.setId("U10002");
+        r.setId("U19001");
         r.setIds(Lists.newArrayList("U10003","U10004"));
         r.setType(type);
         r.setPage(new Page());
