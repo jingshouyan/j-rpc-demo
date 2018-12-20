@@ -37,7 +37,7 @@ public class UserTest {
                 .setClient(client)
                 .setServer("user")
                 .setMethod("getProperties")
-                .setParam("{}")
+                .setParamJson("{}")
                 .send();
         System.out.println(rsp.getResult());
     }
