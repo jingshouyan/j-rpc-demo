@@ -18,7 +18,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
 import java.util.Map;
-import java.util.stream.IntStream;
 
 /**
  * @author jingshouyan

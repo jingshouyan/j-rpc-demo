@@ -10,6 +10,11 @@
     <modules>
         <module>user</module>
         <module>test-client</module>
+        <module>order</module>
+        <module>account</module>
+        <module>inventory</module>
+        <module>inventory-common</module>
+        <module>account-common</module>
     </modules>
     <packaging>pom</packaging>
 
