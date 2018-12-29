@@ -25,7 +25,14 @@
         <dependencies>
             <dependency>
                 <groupId>com.github.jingshouyan</groupId>
-                <artifactId>j-rpc-plugins</artifactId>
+                <artifactId>j-rpc-parent</artifactId>
+                <version>0.1.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.github.jingshouyan</groupId>
+                <artifactId>j-jdbc-parent</artifactId>
                 <version>0.1.0</version>
                 <type>pom</type>
                 <scope>import</scope>

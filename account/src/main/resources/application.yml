@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: account
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://${db.host:127.0.0.1}:${db.port:3306}/${db.schema:ACCOUNT}?useUnicode=true&characterEncoding=utf8&useSSL=false&statementInterceptors=brave.mysql.TracingStatementInterceptor
+    username: ${db.username:root}
+    password: ${db.password:abcd1234}
+
+jrpc:
+  server:
+    name: ${spring.application.name}
+    version: 1.0
+    port: 3002
+  trace:
+    more: true
+j-jdbc:
+  tableInit: 3
+
+org:
+  dromara:
+    hmily :
+      serializer : kryo
+      recoverDelayTime : 128
+      retryMax : 30
+      scheduledDelay : 128
+      scheduledThreadMax :  10
+      repositorySupport : db
+      started: false
+      hmilyDbConfig :
+        driverClassName  : com.mysql.jdbc.Driver
+        url :  jdbc:mysql://127.0.0.1:3306/tcc?useUnicode=true&amp;characterEncoding=utf8&useSSL=false
+        username : root
+        password : abcd1234
+
